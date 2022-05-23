@@ -1,0 +1,193 @@
+
+ <!-- Page Wrapper -->
+ <div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebaruser></app-sidebaruser>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+           <app-topbaruser></app-topbaruser>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">ticket</h1>
+                  
+                </div>
+
+                <!-- Content Row -->
+
+                <div class="row">
+
+                    <!-- Area Chart -->
+                    <div class="col-xl-12 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Liste des tickets      </h6>
+                                
+                                <a class="toggle"  role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-plus-circle fa-2x" data-toggle="modal" data-target="#exampleModalCenter"></i>
+                                    </a>
+                          
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                       
+                                      <mat-form-field>
+                                        <mat-label>Filtrer</mat-label>
+                                        <input matInput (keyup)="applyFilter($event)" placeholder="recherche.." #input>
+                                      </mat-form-field>
+                                      <div class="example-container mat-elevation-z8">
+                                      <table mat-table [dataSource]="dataSource" matSort>
+
+                                        <ng-container matColumnDef="id_ticket">
+                                          <th mat-header-cell *matHeaderCellDef mat-sort-header> id_ticket </th>
+                                          <td mat-cell *matCellDef="let row"> {{row.id_ticket}} &nbsp;&nbsp;&nbsp;</td>
+                                        </ng-container>
+                                        <ng-container matColumnDef="cin">
+                                          <th mat-header-cell *matHeaderCellDef mat-sort-header> cin </th>
+                                          <td mat-cell *matCellDef="let row"> {{row.cin}} &nbsp;&nbsp;&nbsp;</td>
+                                        </ng-container>
+                     
+                                        <ng-container matColumnDef="email">
+                                          <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+                                          <td mat-cell *matCellDef="let row"> {{row.email}} &nbsp;&nbsp; &nbsp;</td>
+                                        </ng-container>
+                                        <ng-container matColumnDef="date">
+                                          <th mat-header-cell *matHeaderCellDef mat-sort-header> date </th>
+                                          <td mat-cell *matCellDef="let row"> {{row.date}} &nbsp;&nbsp;&nbsp; </td>
+                                        </ng-container>
+                                
+                                        <ng-container matColumnDef="res">
+                                          <th mat-header-cell *matHeaderCellDef mat-sort-header> res </th>
+                                          <td mat-cell *matCellDef="let row"> {{row.res}} &nbsp;&nbsp;&nbsp;</td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="Actions">
+                                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                                          <td mat-cell *matCellDef="let row" >
+                                            
+                                            <i style="color:blue;" class="fa fa-edit fa-2x" data-toggle="modal" data-target="#modifModalCenter" ></i>
+                                              &nbsp;
+                                              <i style="color:rgb(255, 0, 0);" class="fa fa-times-circle fa-2x" data-toggle="modal" data-target="#exampleModal"></i> 
+                                            
+
+                                           </td>
+                                        </ng-container>
+                                    
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                    
+                                        <!-- Row shown when there is no matching data. -->
+                                        <tr class="mat-row" *matNoDataRow>
+                                          <td class="mat-cell" colspan="4">
+                                            Aucune donnée correspondant au  ""</td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                      <mat-paginator [pageSizeOptions]="[6, 10, 25, 100]"></mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+        <div class="container">
+            <div class="content">
+              <div class="image-box">
+               <!----<img src="contact.png" alt=""> ----->
+              </div>
+              <span class="topic">Numero Actuel</span>
+              <div>
+                <div class="swiggleBox">
+                  
+                  <label> {{last}}</label>
+                  
+                 <svg width="170" height="85" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg" >
+                   
+              <path d="M0.6,0.5c0,5.4,0,61.5,0,61.5s4.5,5.4,9.9,0c5.4-5.4,9.9,0,9.9,0s4.5,5.4,9.9,0c5.4-5.4,9.9,0,9.9,0
+                 s4.5,5.4,9.9,0c5.4-5.4,9.9,0,9.9,0s4.5,5.4,9.9,0c5.4-5.4,9.9,0,9.9,0s4.5,5.4,9.9,0c5.4-5.4,9.9,0,9.9,0s4.5,5.4,9.9,0
+               c5.4-5.4,9.9,0,9.9,0s4.5,5.4,9.9,0c0,0,0-56.1,0-61.5H0.6z"/> 
+                
+                 </svg>
+        
+              </div>
+        
+              </div>
+        
+        
+        
+            <form action="#">
+              <div class="topic"> Appelez la prochaine ticket </div>
+        
+        
+              <div class="input-box">
+                <input type="submit" value="suivant" (click)="nextticket()">
+              </div>
+            </form>
+          </div>
+          </div>
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span></span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    <!-- Modal ADD article-->
+
+
+    <!-- Modal edit fournisseur-->
+
+  
+  
+  <!-- Modal delete fournisseur -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attention!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          voulez-vous supprimer cet ticket.. ?
+        </div>
+        <div *ngIf="" class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" >Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+<!-- End of Page Wrapper -->
+
+
+
+
